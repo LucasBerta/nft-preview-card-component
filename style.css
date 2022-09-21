@@ -85,6 +85,9 @@ html {
 }
 .card__info--offer .nft-price,
 .card__info--offer .nft-expires {
+  color: hsl(215deg, 51%, 70%);
+  opacity: 0.9;
+  font-size: 1.8rem;
   margin-bottom: 0;
 }
 .card__info--offer .nft-price img,
@@ -92,14 +95,8 @@ html {
   margin-bottom: -0.2rem;
 }
 .card__info--offer .nft-price {
-  font-size: 2rem;
   font-weight: 400;
   color: hsl(178deg, 100%, 50%);
-}
-.card__info--offer .nft-expires {
-  color: hsl(215deg, 51%, 70%);
-  opacity: 0.9;
-  font-size: 1.8rem;
 }
 .card__info::after {
   content: "";

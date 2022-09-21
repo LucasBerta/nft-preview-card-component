@@ -121,6 +121,8 @@ html {
 
       .nft-price,
       .nft-expires {
+        @include stdTextStyle;
+
         img {
           margin-bottom: -0.2rem;
         }
@@ -129,13 +131,8 @@ html {
       }
 
       .nft-price {
-        font-size: 2rem;
         font-weight: 400;
         color: $accent;
-      }
-
-      .nft-expires {
-        @include stdTextStyle;
       }
     }
 
