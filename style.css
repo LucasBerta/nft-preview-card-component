@@ -1,0 +1,142 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  /* 1 rem = 10px; 10px/16px = 62.5% */
+  font-size: 62.5%;
+  font-family: "Outfit";
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(217deg, 54%, 11%);
+  height: 100%;
+  padding: 2rem;
+}
+
+.card {
+  width: 36rem;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  background-color: hsl(216deg, 50%, 16%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 3rem 3rem 0 #0b1423;
+}
+.card > *:not(:last-child), .card__info > * {
+  margin-bottom: 2rem;
+}
+.card__pic-container {
+  position: relative;
+  overflow: hidden;
+}
+.card__pic {
+  width: 100%;
+  border-radius: 1rem;
+}
+.card__pic-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 1rem;
+  color: hsl(0deg, 0%, 100%);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease-in-out;
+}
+.card__pic-container:hover > .card__pic-mask {
+  background-color: rgba(0, 255, 247, 0.5);
+  opacity: 1;
+}
+.card__info--title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: hsl(0deg, 0%, 100%);
+  opacity: 0.9;
+}
+.card__info--description {
+  color: hsl(215deg, 51%, 70%);
+  opacity: 0.9;
+  font-size: 1.8rem;
+}
+.card__info--offer {
+  display: flex;
+  justify-content: space-between;
+}
+.card__info--offer .nft-price,
+.card__info--offer .nft-expires {
+  margin-bottom: 0;
+}
+.card__info--offer .nft-price img,
+.card__info--offer .nft-expires img {
+  margin-bottom: -0.2rem;
+}
+.card__info--offer .nft-price {
+  font-size: 2rem;
+  font-weight: 400;
+  color: hsl(178deg, 100%, 50%);
+}
+.card__info--offer .nft-expires {
+  color: hsl(215deg, 51%, 70%);
+  opacity: 0.9;
+  font-size: 1.8rem;
+}
+.card__info::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: hsl(215deg, 32%, 27%);
+}
+.card__author {
+  display: flex;
+  align-items: center;
+}
+.card__author--pic {
+  width: 4rem;
+  height: 4rem;
+  border: 2px solid hsl(0deg, 0%, 100%);
+  border-radius: 50%;
+}
+.card__author--description {
+  color: hsl(215deg, 51%, 70%);
+  opacity: 0.9;
+  font-size: 1.8rem;
+  font-size: 1.6rem;
+  margin-left: 1.5rem;
+}
+.card__author--description--name {
+  font-weight: 400;
+  color: hsl(0deg, 0%, 100%);
+}
+
+.card__info--title,
+.card__pic-container,
+.card__author--description--name {
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+.card__info--title:hover,
+.card__pic-container:hover,
+.card__author--description--name:hover {
+  color: hsl(178deg, 100%, 50%);
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,183 @@
+// Colors
+$primary: hsl(215, 51%, 70%);
+$accent: hsl(178, 100%, 50%);
+
+$mainBackground: hsl(217, 54%, 11%);
+$cardBackground: hsl(216, 50%, 16%);
+$line: hsl(215, 32%, 27%);
+$White: hsl(0, 0%, 100%);
+
+// Patterns
+$cardItemMarginBottom: 2rem;
+
+// Common style
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin stdTextStyle {
+  color: $primary;
+  opacity: 0.9;
+  font-size: 1.8rem;
+}
+
+@mixin stdTransition($transition: all) {
+  transition: $transition 0.15s ease-in-out;
+}
+
+// Page style
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  /* 1 rem = 10px; 10px/16px = 62.5% */
+  font-size: 62.5%;
+  font-family: "Outfit";
+}
+
+.card-container {
+  @include flex-center;
+  background-color: $mainBackground;
+  height: 100%;
+  padding: 2rem;
+}
+
+.card {
+  width: 36rem;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  background-color: $cardBackground;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 3rem 3rem 0 darken($mainBackground, 2%);
+
+  & > *:not(:last-child),
+  &__info > * {
+    margin-bottom: $cardItemMarginBottom;
+  }
+
+  &__pic-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__pic {
+    width: 100%;
+    border-radius: 1rem;
+  }
+
+  &__pic-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 1rem;
+    color: $White;
+    opacity: 0;
+
+    @include flex-center;
+    @include stdTransition;
+  }
+
+  &__pic-container:hover > .card__pic-mask {
+    background-color: rgba($accent, 0.5);
+    opacity: 1;
+  }
+
+  &__info {
+    &--title {
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: $White;
+      opacity: 0.9;
+    }
+
+    &--description {
+      @include stdTextStyle;
+    }
+
+    &--offer {
+      display: flex;
+      justify-content: space-between;
+
+      .nft-price,
+      .nft-expires {
+        img {
+          margin-bottom: -0.2rem;
+        }
+
+        margin-bottom: 0;
+      }
+
+      .nft-price {
+        font-size: 2rem;
+        font-weight: 400;
+        color: $accent;
+      }
+
+      .nft-expires {
+        @include stdTextStyle;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: $line;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+
+    &--pic {
+      width: 4rem;
+      height: 4rem;
+      border: 2px solid $White;
+      border-radius: 50%;
+    }
+
+    &--description {
+      @include stdTextStyle;
+      font-size: 1.6rem;
+      margin-left: 1.5rem;
+
+      &--name {
+        font-weight: 400;
+        color: $White;
+      }
+    }
+  }
+}
+
+.card__info--title,
+.card__pic-container,
+.card__author--description--name {
+  cursor: pointer;
+  @include stdTransition(color);
+
+  &:hover {
+    color: $accent;
+  }
+}
